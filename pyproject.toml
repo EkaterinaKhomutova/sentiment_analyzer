@@ -5,8 +5,6 @@ description = "Sentiment analysis service with REST API and batch processing"
 authors = ["deimoswi"]
 readme = "README.md"
 
-packages = [{ include = "sentiment_analyzer", from = "src" }]
-
 [tool.poetry.dependencies]
 python = "^3.12"
 pandas = "^2.2.0"
