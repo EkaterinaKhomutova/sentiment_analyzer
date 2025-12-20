@@ -2,8 +2,8 @@ import logging
 from typing import Dict, List
 from collections import Counter
 
-from preprocessing import clean_text
-from model import SentimentModel
+from src.preprocessing import clean_text
+from src.model import SentimentModel
 
 logger = logging.getLogger(__name__)
 
