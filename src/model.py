@@ -1,5 +1,5 @@
 from typing import List, Tuple
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer  # sklearn нет в зависимостях
 from sklearn.linear_model import LogisticRegression
 import numpy as np
 

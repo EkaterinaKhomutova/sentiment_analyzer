@@ -48,8 +48,8 @@ sentiment_analyzer/
 ├── .gitignore
 ├── pyproject.toml
 ├── poetry.lock
-├── src/
-│   ├── __init__.py
+├── src/  (`src` - это изоляция основного кода, а не модуль как таковой. Представьте, что src нет. Вы бы тоже положили все файлы вперемешку на 1 уровень или все-таки разделили бы по папкам?)
+│   ├── __init__.py  (Не нужен. src - это не модуль)
 │   ├── preprocessing.py
 │   ├── model.py
 │   ├── analyzer.py
@@ -61,7 +61,7 @@ sentiment_analyzer/
 │   ├── test_model.py
 │   └── test_analyzer.py
 └── data/
-    └── example_texts.csv
+    └── example_texts.csv  (У вас не так :( )
 ```
 ### Основные компоненты
 

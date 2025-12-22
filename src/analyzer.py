@@ -1,9 +1,9 @@
 import logging
-from typing import Dict, List
+from typing import Dict, List  # Такая типизация устарела. Лучше используйте `list[...]`
 from collections import Counter
 
-from preprocessing import clean_text
-from model import SentimentModel
+from preprocessing import clean_text  # from .preprocessing import clean_text
+from model import SentimentModel  # from .model import SentimentModel
 
 logger = logging.getLogger(__name__)
 
@@ -18,14 +18,14 @@ class SentimentAnalyzer:
         self._train_default_model()
 
     def _train_default_model(self) -> None:
-        texts = [
+        texts = [  # Нужно вынести в txt
             "I love this product",
             "This is amazing",
             "I hate this",
             "This is terrible",
             "It is okay",
         ]
-        labels = ["positive", "positive", "negative", "negative", "neutral"]
+        labels = ["positive", "positive", "negative", "negative", "neutral"]  # Нужно вынести в txt или константы
         cleaned = [clean_text(t) for t in texts]
         self.model.train(cleaned, labels)
         logger.info("Default sentiment model trained")
@@ -44,6 +44,6 @@ class SentimentAnalyzer:
             )
         return results
 
-    def statistics(self, results: List[Dict[str, float | str]]) -> Dict[str, int]:
+    def statistics(self, results: List[Dict[str, float | str]]) -> Dict[str, int]:  # Method 'statistics' may be 'static'
         sentiments = [r["sentiment"] for r in results]
         return dict(Counter(sentiments))

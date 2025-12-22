@@ -1,6 +1,6 @@
 from typing import List, Dict
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from fastapi import FastAPI, HTTPException  # fastapi нет в зависимостях
+from pydantic import BaseModel  # pydantic нет в зависимостях
 
 from analyzer import SentimentAnalyzer
 from storage import AnalysisStorage
