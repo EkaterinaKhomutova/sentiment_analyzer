@@ -32,7 +32,7 @@ poetry run python src/sentiment_analyzer/main.py --input data/example_texts.csv
 
 ## Запуск API
 ```bash
-poetry run uvicorn api:app --reload --app-dir src
+poetry run uvicorn sentiment_analyzer.api:app --reload
 ```
 
 # Swagger:
