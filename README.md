@@ -31,6 +31,9 @@ poetry run python src/sentiment_analyzer/main.py --input data/example_texts.csv
 ```
 
 ## Запуск API
+
+(Нельзя добавлять перегрузку "--reload" в стабильную верисю. Это инструмент для разработки. Юзер должен использовать ваш 
+сервис в production-режиме)
 ```bash
 poetry run uvicorn sentiment_analyzer.api:app --reload
 ```

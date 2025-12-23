@@ -1,3 +1,6 @@
+# Должен быть в корне src - см. пример в проекте, который мы писали на паре "под ключ"
+
+
 import argparse
 
 def parse_args() -> argparse.Namespace:

@@ -1,6 +1,7 @@
 """
 FastAPI application for sentiment analysis.
 """
+# Должен быть в корне src - см. пример в проекте, который мы писали на паре "под ключ"
 
 from typing import Dict, List  # Устаревший спсоб типизации
 
@@ -16,14 +17,18 @@ analyzer = SentimentAnalyzer()
 storage = AnalysisStorage()
 
 
+# Это должно быть в отдельном файле / модуле
 class TextRequest(BaseModel):
     texts: List[str]
 
-
+# Это должно быть в отдельном файле / модуле
 class AnalysisResponse(BaseModel):
     analysis_id: str
     results: List[Dict[str, float | str]]
     statistics: Dict[str, int]
+
+
+# почему нет корневого эндпоинта?
 
 
 @app.post("/analyze", response_model=AnalysisResponse)
