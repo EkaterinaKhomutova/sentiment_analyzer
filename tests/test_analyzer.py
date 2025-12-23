@@ -1,4 +1,4 @@
-from src.analyzer import SentimentAnalyzer
+from src.analyzer import SentimentAnalyzer  # from analyzer import SentimentAnalyzer
 
 def test_statistics() -> None:
     analyzer = SentimentAnalyzer()

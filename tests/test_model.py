@@ -1,4 +1,4 @@
-from src.model import SentimentModel
+from src.model import SentimentModel  # from model import SentimentModel
 
 def test_model_prediction() -> None:
     model = SentimentModel()

@@ -1,5 +1,5 @@
 import logging
-import pandas as pd
+import pandas as pd  # pandas нет в зависимостях
 
 from cli import parse_args
 from analyzer import SentimentAnalyzer

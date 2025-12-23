@@ -7,7 +7,8 @@ readme = "README.md"
 packages = [{ include = "sentiment_analyzer", from = "src" }]
 
 [tool.poetry.dependencies]
-python = "^3.12"
+# Для Poetry 2 версию Python нужно указывать в `tool.poetry.requires-python`. Так, как у вас, тоже будет работать, но это оформление в любой момент может перестать поддержтиваться.
+python = "^3.12"  # Все версии нужно строго фиксировать, например "==3.12.*"
 pandas = "2.2.0"
 scikit-learn = "1.4.0"
 matplotlib = "3.8.0"
@@ -17,6 +18,7 @@ uvicorn = "0.29.0"
 [tool.poetry.group.dev.dependencies]
 pytest = "8.0.0"
 
-[build-system]
-requires = ["poetry-core"]
+[build-system]  # Этот блок нужен для сборки пакета. Но у вас нечего собирать. В src должен был быть модуль `sentiment_analyzer` (у вас все лежит в корне src). Плюс еще нужно было прописать `tool.poetry.packages`
+# Если вы не делаете сборку вашего проекта в пакет, то этот блок не нужен. Но еще тогда в `tool.poetry` нужно указать явно `package-mode=False`
+requires = ["poetry-core"]  # Здесь тоже версия должна быть зафиксирована
 build-backend = "poetry.core.masonry.api"

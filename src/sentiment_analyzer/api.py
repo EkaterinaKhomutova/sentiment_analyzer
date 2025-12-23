@@ -1,11 +1,12 @@
 """
 FastAPI application for sentiment analysis.
 """
+# Должен быть в корне src - см. пример в проекте, который мы писали на паре "под ключ"
 
-from typing import Dict, List
+from typing import Dict, List  # Устаревший спсоб типизации
 
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from fastapi import FastAPI, HTTPException  # fastapi нет в зависимостях
+from pydantic import BaseModel  # pydantic нет в зависимостях
 
 from sentiment_analyzer.analyzer import SentimentAnalyzer
 from sentiment_analyzer.storage import AnalysisStorage
@@ -16,14 +17,18 @@ analyzer = SentimentAnalyzer()
 storage = AnalysisStorage()
 
 
+# Это должно быть в отдельном файле / модуле
 class TextRequest(BaseModel):
     texts: List[str]
 
-
+# Это должно быть в отдельном файле / модуле
 class AnalysisResponse(BaseModel):
     analysis_id: str
     results: List[Dict[str, float | str]]
     statistics: Dict[str, int]
+
+
+# почему нет корневого эндпоинта?
 
 
 @app.post("/analyze", response_model=AnalysisResponse)
