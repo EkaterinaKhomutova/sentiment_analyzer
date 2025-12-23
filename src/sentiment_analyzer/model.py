@@ -1,7 +1,11 @@
+"""
+Machine learning model for sentiment analysis.
+"""
+
 from typing import List, Tuple
+
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-import numpy as np
 
 
 class SentimentModel:
@@ -14,17 +18,28 @@ class SentimentModel:
         self.model = LogisticRegression(max_iter=200)
 
     def train(self, texts: List[str], labels: List[str]) -> None:
-        X = self.vectorizer.fit_transform(texts)
-        self.model.fit(X, labels)
+        """
+        Train the sentiment model.
+
+        :param texts: Training texts
+        :param labels: Corresponding sentiment labels
+        """
+        features = self.vectorizer.fit_transform(texts)
+        self.model.fit(features, labels)
 
     def predict_with_confidence(
         self, texts: List[str]
     ) -> List[Tuple[str, float]]:
         """
-        Returns sentiment prediction with confidence score.
+        Predict sentiment with confidence score.
+
+        :param texts: Input texts
+        :return: List of (sentiment, confidence)
         """
-        X = self.vectorizer.transform(texts)
-        probabilities = self.model.predict_proba(X)
+        features = self.vectorizer.transform(texts)
+        probabilities = self.model.predict_proba(features)
+
         predictions = self.model.classes_[probabilities.argmax(axis=1)]
         confidences = probabilities.max(axis=1)
+
         return list(zip(predictions.tolist(), confidences.tolist()))
